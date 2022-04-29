@@ -11,6 +11,8 @@ class LinkedList {
   }
 
   add(node: ListNode) {
+    if(!node.next) node.next = undefined
+
     if(!this.head) {
       this.head = node
       return
@@ -40,7 +42,7 @@ class LinkedList {
       this.head = this.head.next
     }
 
-    if(previousElement) {
+    if(previousElement && this.head.value === value) {
       previousElement.next = this.head.next
     }
 
